@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,3 +25,26 @@ Route::get('/hello', function (){
 });
 
 Route::get('/user', 'UserController@show');
+
+Route::get('insert', function(){
+    Post::create([
+        'title' => 'This is a title',
+        'description' => 'This is a Description',
+    ]);
+});
+
+Route::get('/select', function(){
+    // return DB::table('posts')->get();
+
+    return DB::table('posts')->where('id' , 1)->first();
+    // $post = Post::find(1);
+    // echo $post->title;
+    // echo $post->description;
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// CRUD
+
+Route::get('/crud', 'CRUDController@index');
+
+

@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class crud extends Model
 {
-    use HasFactory;
+    protected $fillable = ["name"];
 }

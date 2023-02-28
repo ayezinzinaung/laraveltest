@@ -14,7 +14,7 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4 offest-4">
+            <div class="col-md-4 offset-4">
                 @yield('content')
             </div>
         </div>

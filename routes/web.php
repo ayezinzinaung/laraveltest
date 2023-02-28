@@ -44,7 +44,21 @@ Route::get('/select', function(){
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // CRUD
-
+// index
 Route::get('/crud', 'CRUDController@index');
+
+// create
+Route::get('/create', 'CRUDController@create');
+Route::post('/store', 'CRUDController@store');
+
+// delete
+Route::get('/delete/{id}', 'CRUDController@delete');
+
+// update
+Route::get('/edit/{id}', 'CRUDController@edit');
+Route::post('/update/{id}', 'CRUDController@update');
+
+
+
 
 

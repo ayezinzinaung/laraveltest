@@ -10,6 +10,13 @@ class UserController extends Controller
 {
     public function show(){
 
+        $data =[
+            'name' => 'Su',
+            'email' => 'su@gmail.com',
+            'password' => 'password',
+        ];
+
+        User::create($data);
         // $user = new User();
         // $user->name='Su';
         // $user->email='susu@gmail.com' ;
@@ -17,8 +24,8 @@ class UserController extends Controller
         // $user->password=bcrypt('password');
         // $user->save(); 
 
-        // $user = User::all();
-        // return $user;
+        $user = User::all();
+        return $user;
 
         // User::where('id' ,7)->delete();
         
